@@ -9,7 +9,10 @@ Animator::Animator(byte address, int rampLow, int rampHigh)
 }
 
 void Animator::lcdRamp (int value) {  
-  lcd->clear();  
+  lcd->clear();
+
+  value = value > rampHigh ? rampHigh : value;
+  value = value < rampLow ? rampLow : value;
 
   int lcdValue = map(value, rampLow, rampHigh, 0, COLUMNS);
 

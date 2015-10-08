@@ -19,13 +19,13 @@
 class Animator {
   public:
     Animator(byte address, int rampLow, int rampHigh);
-  
-    void setUpLcd();
+
     void lcdRamp (int value);
   private:
     int rampLow;
     int rampHigh;
-  
+
+    void setUpLcd();
     void makeLcdChars();
 
     LiquidCrystal_I2C* lcd;
