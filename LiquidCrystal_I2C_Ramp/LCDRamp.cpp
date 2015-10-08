@@ -1,14 +1,14 @@
-#ifndef ANIMATOR_CPP
-#define ANIMATOR_CPP
+#ifndef LCDRAMP_CPP
+#define LCDRAMP_CPP
 
-#include "animator.h"
+#include "LCDRamp.h"
 
-Animator::Animator(byte address, int rampLow, int rampHigh) 
+LCDRamp::LCDRamp(byte address, int rampLow, int rampHigh)
     : rampLow(rampLow),rampHigh(rampHigh) {
   *lcd = LiquidCrystal_I2C(address, COLUMNS, ROWS);
 }
 
-void Animator::lcdRamp (int value) {  
+void LCDRamp::lcdRamp (int value) {
   lcd->clear();
 
   value = value > rampHigh ? rampHigh : value;
@@ -38,7 +38,7 @@ void Animator::lcdRamp (int value) {
   }
 } 
 
-void Animator::makeLcdChars() {
+void LCDRamp::makeLcdChars() {
   byte ramp[COLUMNS / 2][8] = { 
       { 0b00000, 0b00000, 0b00000, 0b00000, 0b00000, 0b00000, 0b00000, 0b11111 }, 
       { 0b00000, 0b00000, 0b00000, 0b00000, 0b00000, 0b00000, 0b11111, 0b11111 }, 
@@ -55,7 +55,7 @@ void Animator::makeLcdChars() {
   }
 }
 
-void Animator::setUpLcd() {
+void LCDRamp::setUpLcd() {
   lcd->begin(COLUMNS, ROWS);
   lcd->init();
   lcd->backlight();

@@ -1,5 +1,5 @@
-#ifndef ANIMATOR_H
-#define ANIMATOR_H
+#ifndef LCDRAMP_H
+#define LCDRAMP_H
 
 #define COLUMNS 16
 #define ROWS 2
@@ -16,9 +16,9 @@
  * @author Anders Mikkelsen
  * @version 04.10.2015
  */
-class Animator {
+class LCDRamp {
   public:
-    Animator(byte address, int rampLow, int rampHigh);
+    LCDRamp(byte address, int rampLow, int rampHigh);
 
     void lcdRamp (int value);
   private:
