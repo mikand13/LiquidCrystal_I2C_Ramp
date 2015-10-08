@@ -9,9 +9,10 @@
 #include <LiquidCrystal_I2C.h>
 
 /**
- * This class defines the ramp animator for music. It initializes the LiquidCrystal_I2C lib
- * and accepts commands for ramping from 0 to 16. We default any values outside 0 - 16 to
- * 0 or 16 respectively.
+ * This class defines the ramp animator for an i2c liquid crystal screen. It initializes the LiquidCrystal_I2C lib
+ * and accepts commands for ramping from users predefined rampLow and rampHigh. Values are defaulted if outside this,
+ * respectively low or max. The input is then mapped to appropriate column value which is again computed to correct
+ * animation.
  * 
  * @author Anders Mikkelsen
  * @version 04.10.2015
